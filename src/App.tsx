@@ -6,15 +6,16 @@ import './scss/App.scss';
 
 function App() {
   const [readMark, setReadMark] = React.useState<boolean>(false);
-
+  const [count, setCount] = React.useState<number>(3);
   const handleMark = () => {
     setReadMark(true);
+    setCount(0);
   };
 
   return (
     <div className="wrapper">
       <div className="container">
-        <Header handleMark={handleMark} />
+        <Header handleMark={handleMark} count={count} />
 
         <main className="content">
           <Comments readMark={readMark} />
