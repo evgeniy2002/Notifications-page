@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Comments } from './components/Comments';
+import { Header } from './components/Header';
+
+import './scss/App.scss';
 
 function App() {
+  const [readMark, setReadMark] = React.useState<boolean>(false);
+
+  const handleMark = () => {
+    setReadMark(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className="container">
+        <Header handleMark={handleMark} />
+
+        <main className="content">
+          <Comments readMark={readMark} />
+        </main>
+      </div>
     </div>
   );
 }
